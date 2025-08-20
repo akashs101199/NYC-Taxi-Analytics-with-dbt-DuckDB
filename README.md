@@ -6,6 +6,7 @@ This project demonstrates how to build an end-to-end analytics pipeline using db
 It is designed as a hands-on learning project and can be run locally, free of cost.
 
 📂 Project Structure
+
 nyc_taxi_dbt/
 ├── models/
 │   ├── staging/          # Raw taxi trip data cleaned & standardized
