@@ -1,0 +1,24 @@
+name: nyc_taxi_dbt
+version: "1.0.0"
+config-version: 2
+
+profile: nyc_taxi_dbt
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+
+models:
+  nyc_taxi_dbt:
+    +materialized: view
+    staging:
+      +schema: staging
+      +materialized: table
+    intermediate:
+      +schema: intermediate
+    marts:
+      +schema: marts
+      +contracts: {enforced: true}
+      +persist_docs: {relation: true, columns: true}

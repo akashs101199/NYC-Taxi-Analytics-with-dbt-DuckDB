@@ -1,0 +1,12 @@
+version: 2
+exposures:
+  - name: taxi_daily_metrics_dashboard
+    type: dashboard
+    maturity: medium
+    url: https://example.com/your_public_dashboard  # replace when you publish charts
+    description: "Public KPIs powered by dbt marts."
+    depends_on:
+      - ref('agg_daily_metrics')
+    owner:
+      name: Your Name
+      email: you@example.com

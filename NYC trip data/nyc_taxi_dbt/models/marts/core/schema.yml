@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: fct_trips
+    description: "Yellow Taxi fact table (filtered & enriched)"
+    columns:
+      - name: vendor_id        
+        data_type: integer
+        description: "Vendor code"
+      - name: pickup_ts
+        data_type: timestamp
+        description: "Trip start"
+      - name: dropoff_ts
+        data_type: timestamp
+      - name: trip_distance_mi
+        data_type: double
+      - name: trip_minutes
+        data_type: integer
+      - name: total_amount
+        data_type: double
+      - name: pickup_date
+        data_type: date
+
+  - name: agg_daily_metrics
+    description: "Daily KPIs derived from fct_trips"
+    columns:
+      - name: pickup_date
+        data_type: date
+      - name: trips
+        data_type: integer
+      - name: avg_trip_minutes
+        data_type: double
+      - name: avg_distance_mi
+        data_type: double
+      - name: avg_tip_per_mile
+        data_type: double
+      - name: gross_total_amount
+        data_type: double

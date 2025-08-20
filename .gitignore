@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# dbt
+target/
+dbt_packages/
+logs/
+profiles.yml           # if you keep a project-local profile
+
+# Local data & databases
+*.duckdb
+*.duckdb.wal
+data/
+*.csv
+*.parquet
+
+# OS
+.DS_Store

@@ -1,0 +1,17 @@
+version: 2
+unit_tests:
+  - name: int_yellow_enriched_duration
+    model: int_yellow_enriched
+    given:
+      - input: ref('stg_yellow_union')
+        rows:
+          - { pickup_ts: "2024-02-01 10:00:00", dropoff_ts: "2024-02-01 10:30:00",
+              trip_distance_mi: 2.5, total_amount: 20, tip_amount: 4,
+              pu_location_id: 1, do_location_id: 2, vendor_id: 1 }
+          - { pickup_ts: "2024-02-01 11:00:00", dropoff_ts: "2024-02-01 13:00:00",
+              trip_distance_mi: 10, total_amount: 80, tip_amount: 10,
+              pu_location_id: 1, do_location_id: 3, vendor_id: 2 }
+    expect:
+      rows:
+        - { trip_minutes: 30 }
+        - { trip_minutes: 120 }

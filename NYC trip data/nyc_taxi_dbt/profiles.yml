@@ -1,0 +1,12 @@
+nyc_taxi_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ./nyc_taxi.duckdb
+      threads: 4
+      external_access: true
+      extensions: ["httpfs"]
+      settings:
+        enable_http_metadata_cache: true
+        enable_progress_bar: false
